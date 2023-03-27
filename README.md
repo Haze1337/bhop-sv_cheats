@@ -1,4 +1,4 @@
-# sv_cheats Spoofer
+# sv_cheats Spoofer (CS:S Only)
 The plugin spoofs `sv_cheats` ConVar, changes the name, removes the flags and creates a new `sv_cheats` ConVar to bypass the check via sourcemod.
 
 To use it, you need to add `-insecure` to the launch parameters.
