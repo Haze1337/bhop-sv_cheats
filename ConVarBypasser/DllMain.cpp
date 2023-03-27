@@ -46,7 +46,7 @@ void Main(CreateInterfaceFn ef, CreateInterfaceFn sf)
 
         sv_cheats->SetInt(1);
 
-        //SourceMod convar check bypass
+        //SourceMod convar check bypass (hallo fuckit devs)
         CreateConVar("sv_cheats", "0", FCVAR_NOTIFY | FCVAR_REPLICATED);
     }
 }
