@@ -82,13 +82,17 @@ void SpoofedConvar::SetFlags(int flags)
 		m_pOriginalCVar->m_nFlags = flags;
 	}
 }
+
 int SpoofedConvar::GetFlags() 
 {
 	if (IsSpoofed()) 
 	{
 		return m_pOriginalCVar->m_nFlags;
 	}
+
+    return 0;
 }
+
 void SpoofedConvar::SetInt(int iValue) 
 {
 	if (IsSpoofed()) 
@@ -96,6 +100,7 @@ void SpoofedConvar::SetInt(int iValue)
 		m_pOriginalCVar->SetValue(iValue);
 	}
 }
+
 void SpoofedConvar::SetFloat(float flValue) 
 {
 	if (IsSpoofed()) 
@@ -103,6 +108,7 @@ void SpoofedConvar::SetFloat(float flValue)
 		m_pOriginalCVar->SetValue(flValue);
 	}
 }
+
 void SpoofedConvar::SetString(const char* szValue) 
 {
 	if (IsSpoofed()) 
@@ -110,24 +116,33 @@ void SpoofedConvar::SetString(const char* szValue)
 		m_pOriginalCVar->SetValue(szValue);
 	}
 }
+
 int SpoofedConvar::GetInt() 
 {
 	if (IsSpoofed()) 
 	{
 		return m_pOriginalCVar->GetInt();
 	}
+
+    return 0;
 }
+
 float SpoofedConvar::GetFloat() 
 {
 	if (IsSpoofed()) 
 	{
 		return m_pOriginalCVar->GetFloat();
 	}
+
+    return 0.f;
 }
+
 const char* SpoofedConvar::GetString() 
 {
 	if (IsSpoofed()) 
 	{
 		return m_pOriginalCVar->GetString();
 	}
+
+    return "";
 }

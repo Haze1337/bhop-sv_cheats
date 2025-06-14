@@ -17,9 +17,13 @@ uintptr_t CreateConVar(const char* pName, const char* pDefaultValue, int flags =
     auto pVar = (ConVar*)malloc(sizeof(ConVar));
     memset(pVar, 0, sizeof(ConVar));
 
+#ifdef _WIN64
+    using create_t = uintptr_t(__fastcall*)(void*, const char*, const char*, int);
+    static auto CreateFn = reinterpret_cast<create_t>(g_Utils.FindPattern("client.dll", "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 33 ED C6 41 10 00"));
+#else
     using create_t = uintptr_t(__thiscall*)(void*, const char*, const char*, int);
-
     static auto CreateFn = reinterpret_cast<create_t>(g_Utils.FindPattern("client.dll", "55 8B EC D9 EE 56 6A 00 51 D9 14 24 6A 00 51 D9 1C 24 6A 00 8B F1"));
+#endif
 
     return CreateFn(pVar, pName, pDefaultValue, flags);
 }

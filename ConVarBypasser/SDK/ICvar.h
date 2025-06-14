@@ -166,6 +166,15 @@ public:
 	float m_fMaxVal;
 	FnChangeCallback_t	m_fnChangeCallback;
 
+    // Min/Max values for competitive.
+    bool						m_bHasCompMin;
+    float						m_fCompMinVal;
+    bool						m_bHasCompMax;
+    float						m_fCompMaxVal;
+
+    bool						m_bCompetitiveRestrictions;
+
+public:
 	virtual						~ConVar(void) = 0;
 
 	virtual bool				IsFlagSet(int flag) const = 0;
