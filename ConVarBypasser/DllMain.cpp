@@ -22,7 +22,7 @@ uintptr_t CreateConVar(const char* pName, const char* pDefaultValue, int flags =
     static auto CreateFn = reinterpret_cast<create_t>(g_Utils.FindPattern("client.dll", "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 33 ED C6 41 10 00"));
 #else
     using create_t = uintptr_t(__thiscall*)(void*, const char*, const char*, int);
-    static auto CreateFn = reinterpret_cast<create_t>(g_Utils.FindPattern("client.dll", "55 8B EC D9 EE 56 6A 00 51 D9 14 24 6A 00 51 D9 1C 24 6A 00 8B F1"));
+    static auto CreateFn = reinterpret_cast<create_t>(g_Utils.FindPattern("client.dll", "55 8B EC 8B 45 0C 85 C0 56 8B F1 B9 ? ? ? ? 0F 45 C8"));
 #endif
 
     return CreateFn(pVar, pName, pDefaultValue, flags);
